@@ -41,7 +41,7 @@ INSTALLED_APPS = [
     'customer',
     'products',
     'profiles',
-    'reports_proj',
+    'reports',
     'sales',
     #3rd party
     'crispy_forms'
