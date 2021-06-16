@@ -1,7 +1,13 @@
 from django.shortcuts import render
-
+from django.views.generic import ListView
+from .models import Sale
 # Create your views here.
 
 def home_view(request):
-    hello = "fuck the world i (view) am coming home"
-    return render(request, 'sales/main.html', {'h':hello})
+    hello = "hii"
+    return render(request, 'sales/home.html', {'h':hello})
+
+
+class SaleListView(ListView):
+    model = Sale
+    template_name = 'sales/main.html'
