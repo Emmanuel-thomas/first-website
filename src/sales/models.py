@@ -4,6 +4,7 @@ from profiles.models import Profile
 from django.db import models
 from django.utils import timezone
 from .utils import generate_code
+from django.shortcuts import reverse
 # Create your models here.
 
 class Position(models.Model):
@@ -34,6 +35,9 @@ class Sale(models.Model):
     
     def __str__(self):
         return f"sales for the amount of ${self.total_price}"
+
+    def get_absolute_url(self):
+        return reverse('sales:detail', kwargs={'pk': self.pk})
     
     def save(self, *args,**kwargs):
         if self.transaction_id =="":
