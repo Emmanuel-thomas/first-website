@@ -6,9 +6,9 @@ from .forms import SalesSearchForm
 
 def home_view(request):
     form = SalesSearchForm(request.POST or None)
-    hello = 'hello from the view'
+    
     context = {
-        'h':hello,
+    
         'form':form,
     }
     return render(request, 'sales/home.html', context)
