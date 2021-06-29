@@ -1,7 +1,7 @@
 {% extends "base.html" %}
 {% load crispy_forms_tags %}
 {% block title %}
-hello
+sales report
 {% endblock title %}
 {% block content %}
 
@@ -12,5 +12,12 @@ hello
     {{form|crispy}}
     <button type="submit" class="btn btn-primary mt-4">search</button>
 </form>
-        
+<br>
+{% if sales_df %}
+    {{sales_df|safe}} 
+   
+{% else %}
+    <h3>no data</h3>
+
+{% endif %}
 {% endblock content %}
