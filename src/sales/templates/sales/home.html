@@ -14,7 +14,16 @@ sales report
 </form>
 <br>
 {% if sales_df %}
+sales
     {{sales_df|safe}} 
+    <br>
+    position
+    {{ positions_df|safe }}
+    <br>
+    merged
+    {{ merged_df|safe}}
+    <br>
+    {{df|safe}}
    
 {% else %}
     <h3>no data</h3>
