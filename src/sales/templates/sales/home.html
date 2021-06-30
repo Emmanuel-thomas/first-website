@@ -1,5 +1,10 @@
 {% extends "base.html" %}
 {% load crispy_forms_tags %}
+{% load static %}
+
+{% block scripts %}
+    <script src="{% static 'sales/home.js' %}"  defer></script>
+{% endblock scripts %}
 {% block title %}
 sales report
 {% endblock title %}
@@ -24,9 +29,12 @@ sales
     {{ merged_df|safe}}
     <br>
     {{df|safe}}
+    <br>
+    <img src="data:image/pmg;base64, {{chart|safe}}" id='img'>
    
 {% else %}
     <h3>no data</h3>
-
+    
 {% endif %}
+<button class="btn btn-primary not-visible" id="report-btn">add report</button>
 {% endblock content %}
