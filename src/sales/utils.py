@@ -54,7 +54,7 @@ def get_chart(chart_type, data, results_by, **kwargs):
         plt.pie(data=d, x='total_price',labels=d[key].values)
     elif chart_type == '#3':
         print("line chart")
-        plt.plot(d[key],d['total_price'], color='green',marker='o', linestyle='dashed')
+        plt.plot(d[key],d['total_price'], colors='green',marker='o', linestyle='dashed')
     else:
         print("wrong input")
     plt.tight_layout()
