@@ -1,6 +1,6 @@
 from django.db import models
-#from django.db.models.base import Model
 from profiles.models import Profile
+from django.urls import reverse
 
 # Create your models here.
 class Report(models.Model):
@@ -10,6 +10,9 @@ class Report(models.Model):
     author = models.ForeignKey(Profile, on_delete=models.CASCADE)
     created = models.DateTimeField(auto_now_add=True)
     updated = models.DateTimeField(auto_now=True)
+
+    def get_absolutr_url(self):
+        return reverse('reports:detail', kwargs={'pk':self.pk})
 
 
     def __str__(self):

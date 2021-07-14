@@ -9,6 +9,7 @@ const alertBox = document.getElementById('alert-box')
 const reportName = document.getElementById('id_name')
 const reportRemarks = document.getElementById('id_remarks')
 const csrf = document.getElementsByName('csrfmiddlewaretoken')[0].value
+const csrf1 = document.getElementsByName('csrfmiddlewaretoken')[1].value
 
 const handleAlerts = (type, msg) => {
     alertBox.innerHTML = `
@@ -33,14 +34,18 @@ reportBtn.addEventListener('click', ()=>{
         e.preventDefault()
         const formData = new FormData()
         formData.append('csrfmiddlewaretoken', csrf)
+        
         formData.append('name', reportName.value)
         formData.append('remarks', reportRemarks.value)
         formData.append('image', img.src)
-
+        console.log(csrf)
+        console.log(csrf1)
+        console.log(formData)
         $.ajax({
             type: 'POST',
             url: '/reports/save/',
-            data: formData,
+            data: formData, 
+            
             success: function(response){
                 console.log(response)
                 handleAlerts('success', 'report created')
@@ -48,7 +53,7 @@ reportBtn.addEventListener('click', ()=>{
             },
             error: function(error){
                 console.log(error)
-                handleAlerts('danger', 'ups... something went wrong')
+                handleAlerts('danger', '00ps... something went wrong')
             },
             processData: false,
             contentType: false,
