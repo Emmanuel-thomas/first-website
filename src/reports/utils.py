@@ -6,4 +6,6 @@ def get_report_image(data):
     decoded_img = base64.b64decode(str_image)
     img_name = str(uuid.uuid4())[:100] + '.png'
     data = ContentFile(decoded_img, name=img_name)
+    print("image processing")
     return data
+    

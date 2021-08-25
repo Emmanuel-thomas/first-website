@@ -10,6 +10,11 @@ class Profile(models.Model):
     created = models.DateTimeField(auto_now_add=True)
     updated = models.DateTimeField(auto_now=True)
 
+   
+    # def __init__(self: _Self, *args, **kwargs) -> None:
+    #     super().__init__(*args, **kwargs)
+    #     print("why i am herre")
+
     def __str__(self):
         return f"profile of {self.user.username}"
        

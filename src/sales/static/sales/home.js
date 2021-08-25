@@ -42,8 +42,8 @@ reportBtn.addEventListener('click', ()=>{
         console.log(csrf1)
         console.log(formData)
         $.ajax({
-            type: 'POST',
-            url: '/reports/save/',
+            type:'POST',
+            url:'/reports/save/',
             data: formData, 
             
             success: function(response){

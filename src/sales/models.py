@@ -51,7 +51,8 @@ class Sale(models.Model):
     def get_positions(self):
         return self.positions.all()
 class CSV(models.Model):
-    file_name = models.FileField(upload_to='csvs')
+    file_name = models.CharField(max_length=120)
+    csv_file = models.FileField(upload_to='csvs',null=True)
     activated = models.BooleanField(default=False)
     created = models.DateTimeField(auto_now_add=True)
     updated = models.DateTimeField(auto_now=True)

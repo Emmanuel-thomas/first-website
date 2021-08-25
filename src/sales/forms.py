@@ -17,4 +17,8 @@ class SalesSearchForm(forms.Form):
     date_to = forms.DateField(widget=forms.DateInput(attrs={'type': 'date'}))
     chart_type = forms.ChoiceField(choices=CHART_CHOICES)
     results_by = forms.ChoiceField(choices=RESULT_CHOICES)
+    # num = forms.IntegerField(widget=forms.NumberInput())
     
+
+    # def clean(self) -> Dict[str, Any]:
+    #     cleaned_data= super().clean()
