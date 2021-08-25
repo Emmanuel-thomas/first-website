@@ -11,9 +11,13 @@ from products.models import Product
 from .utils import get_customer_from_id,get_salesman_from_id,get_chart
 from customer.models import Customer
 from profiles.models import Profile 
+from django.contrib.auth.decorators import login_required
+from django.contrib.auth.mixins import LoginRequiredMixin
 
 # Create your views here.
 
+
+@login_required
 def home_view(request):
     sales_df = None
     positions_df = None
@@ -82,17 +86,17 @@ def home_view(request):
     return render(request, 'sales/home.html', context)
     
 
-class SaleListView(ListView):
+class SaleListView(LoginRequiredMixin, ListView):
     model = Sale
     template_name = 'sales/main.html'
 
-class SaleDetailView(DetailView):
+class SaleDetailView(LoginRequiredMixin, DetailView):
     model =Sale
     template_name = 'sales/detail.html'
 
-class UploadTmplateView(TemplateView):
+class UploadTmplateView(LoginRequiredMixin, TemplateView):
     template_name = 'sales/from_file.html'
-
+@login_required
 def csv_upload_view(request):
     if request.method == 'POST':
         csv_file_name = request.FILES.get('file').name
